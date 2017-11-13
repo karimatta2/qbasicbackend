@@ -54,7 +54,20 @@ def backend(transL, oldM):
             out = transL[i][4:11]+ " 0000 " + transL[i][17:]
             oldM.append(out)
             print("created!!")
+            
+            
+def createAccountListFile():
+    #takes a master accounts file and loops through it to find all valid account numbers to create a list of them (returns in file format)
+    lineList = []
+    masterAccounts = open('masteraccounts.txt','r')
+    
+    for line in masterAccounts:
+        lineList.append(line.split()[0])
 
+    with open('validaccountlist.txt','w') as accList:
+        for line in lineList:
+            accList.write(line + '\n')
+    return
 
 '''
 #for backend NEW DEL testing
