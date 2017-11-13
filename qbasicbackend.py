@@ -2,11 +2,14 @@
 import argparse
 
 def main():
+    #argument parsing so that the program can be run from the command line
     p = argparse.ArgumentParser()
     p.add_argument('masterAccountFile')
     p.add_argument('transactionFiles',type=file, nargs='+')
     args = p.parse_args()
     master = args.masterAccountFile
+
+    #this is how we will merge all of the transaction files together
     merged = open("merged.txt", "w")
     for tFile in args.transactionFiles:
         line = tFile.readline()
@@ -17,6 +20,7 @@ def main():
     merged.close()
 
     transactionsList = mergeTransactions(merged)
+    print(transactionsList)
     '''
     print("\n")
     print(master)
@@ -31,11 +35,12 @@ def main():
 
 def mergeTransactions(file):
     #takes a long transaction file and makes it a list
-    transactionsList []
-    with open(file, "r") as openfile:
+    transactionsList = []
+    with open("merged.txt", "r") as openfile:
         for line in openfile.readlines():
+            line = line.rstrip('\n')
             transactionsList.append(line)
-    
+        
     return transactionsList
 
 
