@@ -9,7 +9,7 @@ def main():
     args = p.parse_args()
     master = args.masterAccountFile
 
-    #this is how we will merge all of the transaction files together
+    #to merge all transaction files into one file
     merged = open("merged.txt", "w")
     for tFile in args.transactionFiles:
         line = tFile.readline()
@@ -19,17 +19,9 @@ def main():
             line = tFile.readline()
     merged.close()
 
+    #function call to make the merged.txt file into a list to be easier to alter 
     transactionsList = mergeTransactions(merged)
-    print(transactionsList)
-    '''
-    print("\n")
-    print(master)
-    print("\n")
-    print(transactions)
-    print("\n")
-    print(vars(args))
-    '''
-    #mergeTransactions(transactions)
+
     #newMaster = backend(t, masterAcc)
     #createAccListFile(newMaster)
 
