@@ -16,7 +16,7 @@ def main():
             line = tFile.readline()
     merged.close()
 
-    mergeTransactions(merged)
+    transactionsList = mergeTransactions(merged)
     '''
     print("\n")
     print(master)
@@ -31,6 +31,12 @@ def main():
 
 def mergeTransactions(file):
     #takes a long transaction file and makes it a list
+    transactionsList []
+    with open(file, "r") as openfile:
+        for line in openfile.readlines():
+            transactionsList.append(line)
+    
+    return transactionsList
 
 
 main()
