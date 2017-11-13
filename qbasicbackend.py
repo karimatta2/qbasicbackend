@@ -10,6 +10,7 @@ def main():
     master = args.masterAccountFile
     masterAccList = masterList()
     
+    #************************************************************
     #to merge all transaction files into one file
     merged = open("merged.txt", "w")
     for tFile in args.transactionFiles:
@@ -22,7 +23,23 @@ def main():
 
     #function call to make the merged.txt file into a list to be easier to alter 
     transactionsList = mergeTransactions()
-
+    #*************************************************************
+    
+    '''
+    #for backend NEW DEL testing
+    #transList = ["NEW 1000004 0000 Name", "DEL 1000002 00000 Name"]
+    #masterFile = ["1000003 10000 Name", "1000002 10000 Name", "1000001 10000 Name", "000000 0000 ****"]
+   
+    print("\nOriginal transaction list:")
+    print(transList)   
+    print("\nOld master file:")
+    print(masterFile)   
+    backend(transactionsList, masterAccList)
+    print("\n\nNew transaction list:")
+    print(transList)   
+    print("\nNew master file:")
+    print(masterFile)
+    '''
     #newMaster = backend(t, masterAcc)
     #createAccListFile(newMaster)
 
@@ -82,17 +99,4 @@ def createAccountListFile():
             accList.write(line + '\n')
     return
 
-'''
-#for backend NEW DEL testing
-transList = ["NEW 1000004 0000 Name", "DEL 1000002 00000 Name"]
-masterFile = ["1000003 10000 Name", "1000002 10000 Name", "1000001 10000 Name", "000000 0000 ****"]
-print("\nOriginal transaction list:")
-print(transList)   
-print("\nOld master file:")
-print(masterFile)   
-backend(transList, masterFile)
-print("\n\nNew transaction list:")
-print(transList)   
-print("\nNew master file:")
-print(masterFile)
-'''
+
