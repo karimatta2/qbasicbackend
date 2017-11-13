@@ -9,7 +9,7 @@ def main():
     args = p.parse_args()
     master = args.masterAccountFile
     masterAccList = masterList()
-    print(masterAccList)
+    
     #to merge all transaction files into one file
     merged = open("merged.txt", "w")
     for tFile in args.transactionFiles:
