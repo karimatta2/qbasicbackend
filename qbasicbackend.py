@@ -33,12 +33,10 @@ def mergeTransactions(file):
     #takes a long transaction file and makes it a list
 
 
-
-<<<<<<< HEAD
-
-
 main()
-=======
+
+
+
 def backend(transL, oldM):
 
     #loops through transList
@@ -58,12 +56,6 @@ def backend(transL, oldM):
             print("created!!")
 
 
-def mergeTransactions():
-    return
-
-
-main()
-
 '''
 #for backend NEW DEL testing
 transList = ["NEW 1000004 0000 Name", "DEL 1000002 00000 Name"]
@@ -78,4 +70,3 @@ print(transList)
 print("\nNew master file:")
 print(masterFile)
 '''
->>>>>>> 8acac4a5e61f725e73c417eeb73314107a3c57f6
