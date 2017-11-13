@@ -8,7 +8,8 @@ def main():
     p.add_argument('transactionFiles',type=file, nargs='+')
     args = p.parse_args()
     master = args.masterAccountFile
-
+    masterAccList = masterList()
+    print(masterAccList)
     #to merge all transaction files into one file
     merged = open("merged.txt", "w")
     for tFile in args.transactionFiles:
@@ -20,12 +21,21 @@ def main():
     merged.close()
 
     #function call to make the merged.txt file into a list to be easier to alter 
-    transactionsList = mergeTransactions(merged)
+    transactionsList = mergeTransactions()
 
     #newMaster = backend(t, masterAcc)
     #createAccListFile(newMaster)
 
-def mergeTransactions(file):
+def masterList():
+    lis = []
+    with open("masterAccountFile.txt") as openfile:
+        for line in openfile:
+            line = line.rstrip("\n")
+            lis.append(line)
+        
+    return lis
+
+def mergeTransactions():
     #takes a long transaction file and makes it a list
     transactionsList = []
     with open("merged.txt", "r") as openfile:
