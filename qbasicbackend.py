@@ -63,7 +63,6 @@ def mergeTransactions():
     return transactionsList
 
 
-main()
 
 
 
@@ -71,7 +70,7 @@ def backend(transL, oldM):
 
     #loops through transList
     for i in range(0,len(transL)):
-
+        
         if transL[i][0:3] == "DEL":
             #print("deleting at iteration: " + str(i))
             for j in range(0, len(oldM)):
@@ -84,6 +83,62 @@ def backend(transL, oldM):
             out = transL[i][4:11]+ " 0000 " + transL[i][17:]
             oldM.append(out)
             print("created!!")
+
+            
+  def deposit(transaction, masterAcc):
+    accNum = transaction.split(' ')[1]
+    for i in range(0,len(masterAcc)-1):
+        number = masterAcc[i].split(' ')[0]
+        if accNum == number:
+            balance = int(masterAcc[i].split(' ')[1])
+            dep = int(transaction.split(' ')[2])
+            balance += dep
+            
+            masterAcc[i] = masterAcc[i].replace(masterAcc[i].split(' ')[1], str(balance))
+            return masterAcc
+        else:
+            continue
+    return masterAcc
+
+
+
+def withdraw(transaction, masterAcc):
+    accNum = transaction.split(' ')[1]
+    for i in range(0,len(masterAcc)-1):
+        number = masterAcc[i].split(' ')[0]
+        if accNum == number:
+            balance = int(masterAcc[i].split(' ')[1])
+            withD = int(transaction.split(' ')[2])
+            balance -= withD
+
+            masterAcc[i] = masterAcc[i].replace(masterAcc[i].split(' ')[1], str(balance))
+
+            return masterAcc
+    return masterAcc
+        
+
+def transfer(transaction, masterAcc):
+    toAcc = transaction.split(' ')[1]
+    fromAcc = transaction.split(' ')[3]
+    for i in range(0,len(masterAcc)-1):
+   
+        number = masterAcc[i].split(' ')[0]
+        if toAcc == number:
+            balance = int(masterAcc[i].split(' ')[1])
+            dep = int(transaction.split(' ')[2])
+            balance += dep
+            masterAcc[i]= masterAcc[i].replace(masterAcc[i].split(' ')[1], str(balance))
+            
+        
+        elif fromAcc == number:
+            balance = int(masterAcc[i].split(' ')[1])
+            withD = int(transaction.split(' ')[2])
+            balance -= withD
+            masterAcc[i] = masterAcc[i].replace(masterAcc[i].split(' ')[1], str(balance))
+            
+        else:
+            continue
+    return masterAcc
             
             
 def createAccountListFile():
@@ -100,3 +155,4 @@ def createAccountListFile():
     return
 
 
+main()
