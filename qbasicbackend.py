@@ -70,7 +70,12 @@ def backend(transL, oldM):
 
     #loops through transList
     for i in range(0,len(transL)):
-        
+        if transL[i][0:3] == "DEP":
+            deposit(transL,oldM)
+        elif transL[i][0:3] == "WDR":
+            withdraw(transL,oldM)
+        elif transL[i][0:3] == "XFR":
+            transfer(transL,oldM)
         if transL[i][0:3] == "DEL":
             #print("deleting at iteration: " + str(i))
             for j in range(0, len(oldM)):
