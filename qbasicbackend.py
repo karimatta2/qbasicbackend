@@ -90,9 +90,9 @@ def backend(transL, oldM):
             print("created!!")
 
             
-  def deposit(transaction, masterAcc):
+def deposit(transaction, masterAcc):
     accNum = transaction.split(' ')[1]
-    for i in range(0,len(masterAcc)-1):
+    for i in range(0,len(masterAcc)):
         number = masterAcc[i].split(' ')[0]
         if accNum == number:
             balance = int(masterAcc[i].split(' ')[1])
@@ -109,7 +109,7 @@ def backend(transL, oldM):
 
 def withdraw(transaction, masterAcc):
     accNum = transaction.split(' ')[1]
-    for i in range(0,len(masterAcc)-1):
+    for i in range(0,len(masterAcc)):
         number = masterAcc[i].split(' ')[0]
         if accNum == number:
             balance = int(masterAcc[i].split(' ')[1])
@@ -125,7 +125,7 @@ def withdraw(transaction, masterAcc):
 def transfer(transaction, masterAcc):
     toAcc = transaction.split(' ')[1]
     fromAcc = transaction.split(' ')[3]
-    for i in range(0,len(masterAcc)-1):
+    for i in range(0,len(masterAcc)):
    
         number = masterAcc[i].split(' ')[0]
         if toAcc == number:
