@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+# Submitted by BFK Inc. for CISC 327
+# Karim Atta
+# Fangt Xu
+# Brandon White
+# Dean Wilkins-Reeves
+# November 2017
+
 import argparse
 
 def main():
@@ -23,6 +30,7 @@ def main():
 
     #function call to make the merged.txt file into a list to be easier to alter 
     transactionsList = mergeTransactions()
+    newMaster = backend(t, masterAcc)
     #*************************************************************
     
     '''
@@ -40,7 +48,7 @@ def main():
     print("\nNew master file:")
     print(masterFile)
     '''
-    #newMaster = backend(t, masterAcc)
+
     #createAccListFile(newMaster)
 
 def masterList():
@@ -89,7 +97,7 @@ def backend(transL, oldM):
             oldM.append(out)
             print("created!!")
 
-            
+
 def deposit(transaction, masterAcc):
     accNum = transaction.split(' ')[1]
     for i in range(0,len(masterAcc)):
