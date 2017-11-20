@@ -89,8 +89,6 @@ def backend(transL, oldM):
             #print("deleting at iteration: " + str(i))
             for j in range(0, len(oldM)):
                 l = len(transL[i][24:])
-                print(l)
-                print(transL[i][-4:])
                 if oldM[j][0:7] == transL[i][4:11] and oldM[j][-l:] == transL[i][24:]:
                     del oldM[j]
                     print("deleted!!")
