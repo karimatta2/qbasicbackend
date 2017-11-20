@@ -7,3 +7,5 @@
 # November 2017
 # This is a python file to test qbasicbackend.py
 
+from qbasicbackend import backend
+backend()
