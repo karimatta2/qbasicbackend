@@ -14,9 +14,11 @@
 #masterAccount = [""] then i would call backend(["NEW 1234567 000 0000000 Name"], [""])
 
 from qbasicbackend import backend
-#Creation Transactions Testing
+# Creation Transactions Testing
+#   T1:
+backend(["DEL 1234567 000 0000000 Name"], ["1234567 999 Name"])
+#   T2:
+backend(["NEW 1234567 000 0000000 Name"],[""])
 
-
-
-#Withdraw Transactions Testing
+# Withdraw Transactions Testing
 
