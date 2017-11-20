@@ -10,6 +10,7 @@ import argparse
 
 def main():
     #argument parsing so that the program can be run from the command line
+    
     p = argparse.ArgumentParser()
     p.add_argument('masterAccountFile')
     p.add_argument('transactionFiles',type=file, nargs='+')
@@ -168,4 +169,4 @@ def createAccountListFile():
     return
 
 
-main()
+#main()
