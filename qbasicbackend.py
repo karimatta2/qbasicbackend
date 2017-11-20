@@ -85,19 +85,23 @@ def backend(transL, oldM):
             withdraw(transL,oldM)
         elif transL[i][0:3] == "XFR":
             transfer(transL,oldM)
-        if transL[i][0:3] == "DEL":
+        elif transL[i][0:3] == "DEL":
             #print("deleting at iteration: " + str(i))
             for j in range(0, len(oldM)):
-                if oldM[j][0:7] == transL[i][4:11] and oldM[j][13:] == transL[i][16:]:
+                l = len(transL[i][24:])
+                print(l)
+                print(transL[i][-4:])
+                if oldM[j][0:7] == transL[i][4:11] and oldM[j][-l:] == transL[i][24:]:
                     del oldM[j]
                     print("deleted!!")
                     break
-        if transL[i][0:3] == "NEW":
+        elif transL[i][0:3] == "NEW":
             #print("creating at iteration: " + str(i))
             out = transL[i][4:11]+ " 000 " + transL[i][17:]
             oldM.append(out)
             print("created!!")
-
+        else:
+            print("Wrong format of transaction file")
 
 def deposit(transaction, masterAcc):
     accNum = transaction.split(' ')[1]
