@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 # Submitted by BFK Inc. for CISC 327
 # Karim Atta
 # Fangt Xu
