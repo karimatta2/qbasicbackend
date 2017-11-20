@@ -87,13 +87,13 @@ def backend(transL, oldM):
         if transL[i][0:3] == "DEL":
             #print("deleting at iteration: " + str(i))
             for j in range(0, len(oldM)):
-                if oldM[j][0:7] == transL[i][4:11] and oldM[j][13:] == transL[i][17:]:
+                if oldM[j][0:7] == transL[i][4:11] and oldM[j][13:] == transL[i][16:]:
                     del oldM[j]
                     print("deleted!!")
                     break
         if transL[i][0:3] == "NEW":
             #print("creating at iteration: " + str(i))
-            out = transL[i][4:11]+ " 0000 " + transL[i][17:]
+            out = transL[i][4:11]+ " 000 " + transL[i][17:]
             oldM.append(out)
             print("created!!")
 
