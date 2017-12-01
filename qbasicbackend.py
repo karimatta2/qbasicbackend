@@ -119,7 +119,7 @@ def deposit(transaction, masterAcc):
 
 
 def withdraw(transaction, masterAcc):
-    accNum = transaction.split(' ')[1]
+    accNum = transaction.split(' ')[3]
     for i in range(0,len(masterAcc)):
         number = masterAcc[i].split(' ')[0]
         if accNum == number:
